@@ -40,7 +40,7 @@ The requirements.txt file includes:
 Run the generator with default settings:
 
 ```
-python working_generator.py
+python run.py
 ```
 
 The program will guide you through entering:
