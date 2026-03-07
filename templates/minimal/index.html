@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Simple system fonts only - no external dependencies -->
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">{{ name }}</h1>
+            {% if title %}
+            <p class="title">{{ title }}</p>
+            {% endif %}
+            <p class="bio">{{ bio }}</p>
+            
+            <div class="contact-info">
+                <a href="mailto:{{ email }}" class="contact-link">{{ email }}</a>
+                {% if github_link and github_link != "#" %}
+                <a href="{{ github_link }}" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+                {% endif %}
+                {% if linkedin_link and linkedin_link != "#" %}
+                <a href="{{ linkedin_link }}" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Projects -->
+        {% if projects %}
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <h3>{{ project.title }}</h3>
+                    {% if project.description %}
+                    <p>{{ project.description }}</p>
+                    {% endif %}
+                    {% if project.technologies %}
+                    <div class="project-tech">
+                        {% for tech in project.technologies %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if project.url %}
+                    <a href="{{ project.url }}" class="project-link" target="_blank" rel="noopener">View Project →</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Skills -->
+        {% if skills %}
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                {% for skill in skills %}
+                <div class="skill-item">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    {% if skill.level %}
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: {{ skill.level }}%"></div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Experience -->
+        {% if experience %}
+        <section class="experience">
+            <h2>Experience</h2>
+            <div class="timeline">
+                {% for exp in experience %}
+                <div class="timeline-item">
+                    <h3>{{ exp.company }}</h3>
+                    <p class="timeline-meta">{{ exp.position }} | {{ exp.start_date }} - {{ exp.end_date }}</p>
+                    {% if exp.description %}
+                    <p>{{ exp.description }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Education -->
+        {% if education %}
+        <section class="education">
+            <h2>Education</h2>
+            <div class="education-list">
+                {% for edu in education %}
+                <div class="education-item">
+                    <h3>{{ edu.institution }}</h3>
+                    <p class="education-meta">{{ edu.degree }}{% if edu.field %} in {{ edu.field }}{% endif %} | {{ edu.year }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© {{ generation_date }} {{ name }}</p>
+        </footer>
+    </div>
+</body>
+</html>

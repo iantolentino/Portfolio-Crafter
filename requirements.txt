@@ -1,0 +1,9 @@
+# Core dependencies
+questionary>=1.10.0      # For interactive command-line prompts
+colorama>=0.4.6          # For colored terminal output
+Pillow>=9.0.0            # For image processing
+pyyaml>=6.0              # For YAML template configs
+jinja2>=3.0.0            # For advanced templating
+requests>=2.28.0         # For downloading assets
+qrcode>=7.4.2            # For QR code generation
+selenium>=4.0.0          # For screenshots (optional)

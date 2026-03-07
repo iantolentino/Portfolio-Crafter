@@ -1,0 +1,330 @@
+/* Minimalist Portfolio CSS
+   A clean, readable design with focus on content */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Minimal color palette */
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #6c6c6c;
+    --accent: #0366d6;
+    --border: #eaeaea;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+    
+    /* Layout */
+    --container-width: 800px;
+    --border-radius: 4px;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-xs);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+}
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Section */
+.header {
+    padding: var(--space-xl) 0 var(--space-lg);
+    text-align: left;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-xs);
+}
+
+.title {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.bio {
+    font-size: 1.1rem;
+    max-width: 600px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+}
+
+.contact-link {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.contact-link:hover {
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: var(--space-lg) 0;
+}
+
+section:first-of-type {
+    padding-top: 0;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.project-card {
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.project-card h3 {
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+}
+
+/* Project Technologies */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: var(--space-sm) 0;
+}
+
+.tech-tag {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    background: rgba(3, 102, 214, 0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    border: 1px solid rgba(3, 102, 214, 0.1);
+}
+
+.project-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: var(--space-xs);
+}
+
+/* Skills Section */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.skill-item {
+    width: 100%;
+}
+
+.skill-name {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* Timeline (Experience) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.timeline-item {
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--border);
+}
+
+.timeline-item h3 {
+    margin-bottom: 0.25rem;
+}
+
+.timeline-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xs);
+}
+
+/* Education */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.education-item h3 {
+    margin-bottom: 0.25rem;
+}
+
+.education-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+    padding: var(--space-lg) 0 var(--space-md);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-lg);
+}
+
+/* Simple Responsive */
+@media (max-width: 600px) {
+    :root {
+        --space-xl: 4rem;
+        --space-lg: 3rem;
+        --space-md: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header {
+        padding-top: 2rem;
+    }
+    
+    .project-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+    
+    .contact-link[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8rem;
+        color: #666;
+    }
+}
+
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
